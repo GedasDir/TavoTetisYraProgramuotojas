@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Šventinis Sveikinimas</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #002f4b, #1a1a1a);
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 10px gold;
+        }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            opacity: 0.8;
+            user-select: none;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎄 Pasakyk Haroldui, kad jo Tetis yra hakeris 🎁</h1>
+    <p>🎅 Aš tau sakau 🎆</p>
+
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+            snowflake.innerHTML = "❄";
+            document.body.appendChild(snowflake);
+
+            let size = Math.random() * 20 + 10; // Atsitiktinis dydis
+            let left = Math.random() * window.innerWidth; // Atsitiktinė vieta
+            let duration = Math.random() * 5 + 3; // Kritimo trukmė
+
+            snowflake.style.left = left + "px";
+            snowflake.style.fontSize = size + "px";
+            snowflake.style.animation = fall ${duration}s linear infinite;
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, duration * 1000);
+        }
+
+        setInterval(createSnowflake, 200); // Kiekvieną 200ms sukuria naują snaigę
+    </script>
+</body>
+</html>
